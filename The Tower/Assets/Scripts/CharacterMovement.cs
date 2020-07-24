@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float jumpHeight;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     private bool onGround;
     private bool canJump;
@@ -19,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -35,10 +37,13 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow)){
             rb.velocity = new Vector2(-speed, rb.velocity.y);
+            spriteRenderer.flipX = true;
+            //sprite.Equals("HazelPlaceholder_1");
         }
 
         else if (Input.GetKey(KeyCode.RightArrow)){
             rb.velocity = new Vector2(+speed, rb.velocity.y);
+            spriteRenderer.flipX = false;
         }
 
         else {
