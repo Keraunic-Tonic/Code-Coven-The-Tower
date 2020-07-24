@@ -10,7 +10,6 @@ public class CharacterMovement : MonoBehaviour
     public float jumpHeight;
 
     private Rigidbody2D rb;
-    private Sprite sprite;
     private SpriteRenderer spriteRenderer;
 
     private bool onGround;
@@ -21,7 +20,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<Sprite>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
