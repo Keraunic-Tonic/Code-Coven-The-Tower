@@ -50,8 +50,9 @@ public class CharacterMovement : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
+        //If the character falls off the screen, the sprite will reload on the current scene
         if (rb.transform.position.y < -10){
-            SceneManager.LoadScene("LaurenTestingMovement");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

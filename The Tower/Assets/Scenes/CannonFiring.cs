@@ -2,27 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class CannonFiring : MonoBehaviour
 {
-
 	public Rigidbody2D laser;
 	public GameObject soundManager;
 	public bool isVertical;
 	public float firingRate;
+	private float firingRateFixed;
+
 	void Start()
 	{
-
+		firingRateFixed = firingRate;
 	}
+
 	// Update is called once per frame
 	void Update()
 	{
-		if (isVertical)
+		firingRate -= Time.deltaTime;
+
+		if (firingRate <= 0)
 		{
-			Invoke("VerticalFiring", firingRate);
-		}
-		else
-		{
-			Invoke("HorizontalFiring", firingRate);
+			firingRate = firingRateFixed;
+
+			if (isVertical)
+			{
+				VerticalFiring();
+			}
+			else
+			{
+				HorizontalFiring();
+			}
+
 		}
 	}
 
@@ -35,7 +45,3 @@ public class Shooting : MonoBehaviour
 		Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
 	}
 }
-
-
-
-
