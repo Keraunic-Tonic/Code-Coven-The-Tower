@@ -33,7 +33,7 @@ public class CharacterMovement : MonoBehaviour
         if (onGround == true){
             canJump = true;
         }
-        
+
         //If the user presses the space key and the player is on the ground, the player jumps
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true){
             spriteRenderer.sprite = jumpSprite;
@@ -74,6 +74,12 @@ public class CharacterMovement : MonoBehaviour
             print(onGround);
         }
 
+        //If we collide with an object tagged "obstacle" then the character will be hurt
+        if (collision.gameObject.tag == "obstacle")
+        {
+            spriteRenderer.sprite = hurtSprite;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -83,6 +89,12 @@ public class CharacterMovement : MonoBehaviour
         {
             onGround = false;
             print(onGround);
+        }
+
+        //If we exit our collision with the "obstacle" object, then the sprite changes back to idle
+        if (collision.gameObject.tag == "obstacle")
+        {
+            spriteRenderer.sprite = idleSprite;
         }
     }
 }
