@@ -81,6 +81,7 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.tag == "obstacle")
         {
             spriteRenderer.sprite = hurtSprite;
+            print("Hazel is hurt!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
