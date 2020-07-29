@@ -5,7 +5,7 @@ using UnityEngine;
 public class CannonFiring : MonoBehaviour
 {
 	public Rigidbody2D laser;
-	public GameObject soundManager;
+	AudioSource audioSource;
 	public bool isVertical;
 	public float firingRate;
 	private float firingRateFixed;
@@ -13,6 +13,7 @@ public class CannonFiring : MonoBehaviour
 	void Start()
 	{
 		firingRateFixed = firingRate;
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -23,7 +24,7 @@ public class CannonFiring : MonoBehaviour
 		if (firingRate <= 0)
 		{
 			firingRate = firingRateFixed;
-
+			audioSource.Play();
 			if (isVertical)
 			{
 				VerticalFiring();
