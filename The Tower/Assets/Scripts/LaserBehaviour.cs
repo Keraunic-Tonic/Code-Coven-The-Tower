@@ -8,8 +8,9 @@ public class LaserBehaviour : MonoBehaviour
     Rigidbody2D rb;
     AudioSource myAudioSource;
 
-    // Start is called before the first frame update
-    void Start()
+
+	// Start is called before the first frame update
+	void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         myAudioSource = GetComponent<AudioSource>();
