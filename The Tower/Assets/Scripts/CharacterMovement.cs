@@ -8,9 +8,6 @@ public class CharacterMovement : MonoBehaviour
     
     public float speed;
     public float jumpHeight;
-    public Sprite idleSprite;
-    public Sprite jumpSprite;
-    public Sprite hurtSprite;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -29,23 +26,19 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check if the player is on the ground. If the player is on the ground, they can jump.
         if (onGround == true){
             canJump = true;
         }
 
-        //If the user presses the space key and the player is on the ground, the player jumps
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true){
-            spriteRenderer.sprite = jumpSprite;
-            rb.velocity = Vector2.up * jumpHeight;
-        }
-        else {
             canJump = false;
+            rb.velocity = Vector2.up * jumpHeight;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow)){
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             spriteRenderer.flipX = true;
+            //sprite.Equals("HazelPlaceholder_1");
         }
 
         else if (Input.GetKey(KeyCode.RightArrow)){
@@ -69,15 +62,9 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             onGround = true;
-            spriteRenderer.sprite = idleSprite;
-            //This will print the value of onGround, which is a boolean, so either True or False.
             print(onGround);
-        }
-
-        //If we collide with an object tagged "obstacle" then the character will be hurt
-        if (collision.gameObject.tag == "obstacle")
-        {
-            spriteRenderer.sprite = hurtSprite;
+            //print statements print to the Console panel in Unity. 
+            //This will print the value of onGround, which is a boolean, so either True or False.
         }
 
     }
@@ -89,12 +76,6 @@ public class CharacterMovement : MonoBehaviour
         {
             onGround = false;
             print(onGround);
-        }
-
-        //If we exit our collision with the "obstacle" object, then the sprite changes back to idle
-        if (collision.gameObject.tag == "obstacle")
-        {
-            spriteRenderer.sprite = idleSprite;
         }
     }
 }
