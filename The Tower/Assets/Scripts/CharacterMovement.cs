@@ -47,7 +47,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow)){
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             spriteRenderer.flipX = true;
-            //sprite.Equals("HazelPlaceholder_1");
         }
 
         else if (Input.GetKey(KeyCode.RightArrow)){
@@ -77,14 +76,6 @@ public class CharacterMovement : MonoBehaviour
             //This will print the value of onGround, which is a boolean, so either True or False.
         }
 
-        //If we collide with an object tagged "obstacle" then the character will be hurt
-        if (collision.gameObject.tag == "obstacle")
-        {
-            spriteRenderer.sprite = hurtSprite;
-            print("Hazel is hurt!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -104,7 +95,15 @@ public class CharacterMovement : MonoBehaviour
 		{
             collision.gameObject.GetComponent<changeScenes>().changeScene("secondLevel");
 		}
-	}
+
+        //If we collide with an object tagged "obstacle" then the character will be hurt
+        if (collision.gameObject.tag == "obstacle")
+        {
+            spriteRenderer.sprite = hurtSprite;
+            print("Hazel is hurt!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
 
     
