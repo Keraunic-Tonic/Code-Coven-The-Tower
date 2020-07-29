@@ -308,8 +308,8 @@ Transform:
   m_LocalPosition: {x: -7.5020003, y: -2.94, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 2055088924}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &574539875
 BoxCollider2D:
@@ -443,7 +443,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &716697456
 GameObject:
@@ -456,7 +456,6 @@ GameObject:
   - component: {fileID: 716697459}
   - component: {fileID: 716697458}
   - component: {fileID: 716697457}
-  - component: {fileID: 716697460}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -651,7 +650,7 @@ GameObject:
   - component: {fileID: 1962200020}
   - component: {fileID: 1962200022}
   m_Layer: 0
-  m_Name: HazelPlaceholder_0
+  m_Name: Hazel_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,13 +695,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7579525293385179250, guid: 169b9b9c47ccd6d4b9f5d75feb6d9dd5,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6262d231419bea4e974fd896377bcc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.59, y: 8.4}
+  m_Size: {x: 5.14, y: 8.88}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -757,10 +755,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpHeight: 7
-  idleSprite: {fileID: 7579525293385179250, guid: 169b9b9c47ccd6d4b9f5d75feb6d9dd5,
-    type: 3}
-  jumpSprite: {fileID: 21300000, guid: 719da4175135dae4687c3df7099697db, type: 3}
-  hurtSprite: {fileID: 21300000, guid: 929c1b5ea48d04e43a809978d49baccb, type: 3}
 --- !u!61 &1962200022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -778,8 +772,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.59, y: 8.4}
-    newSize: {x: 4.59, y: 8.4}
+    oldSize: {x: 5.14, y: 8.88}
+    newSize: {x: 5.14, y: 8.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
