@@ -93,7 +93,7 @@ public class CharacterMovement : MonoBehaviour
 	{
 		if (collision.gameObject.name == "nextLevel")
 		{
-            collision.gameObject.GetComponent<changeScenes>().changeScene("secondLevel");
+            collision.gameObject.GetComponent<changeScenes>().changeScene("EndScene");
 		}
 
         //If we collide with an object tagged "obstacle" then the character will be hurt
