@@ -77,6 +77,13 @@ public class CharacterMovement : MonoBehaviour
             //This will print the value of onGround, which is a boolean, so either True or False.
         }
 
+        //If we collide with an object tagged "obstacle" then the character will be hurt
+        if (collision.gameObject.tag == "obstacle")
+        {
+            spriteRenderer.sprite = hurtSprite;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
