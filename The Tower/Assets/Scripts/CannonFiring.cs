@@ -9,6 +9,8 @@ public class CannonFiring : MonoBehaviour
 	public bool isVertical;
 	public float firingRate;
 	private float firingRateFixed;
+	public bool isLeft;
+	public bool isBottom;
 
 	void Start()
 	{
@@ -39,10 +41,25 @@ public class CannonFiring : MonoBehaviour
 
 	void VerticalFiring()
 	{
-		Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+		if (isBottom)
+		{
+			Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, -90)));
+		}
+		else
+		{
+			Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+		}
+
 	}
 	void HorizontalFiring()
 	{
-		Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+		if (isLeft)
+		{
+			Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, -180)));
+		}
+		else
+		{
+			Instantiate(laser, gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+		}
 	}
 }
