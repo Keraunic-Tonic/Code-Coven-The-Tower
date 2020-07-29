@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour
 
     private bool onGround;
     private bool canJump;
+    AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true){
             canJump = false;
             rb.velocity = Vector2.up * jumpHeight;
+            audioSource.Play();
         }
 
         if (Input.GetKey(KeyCode.LeftArrow)){
