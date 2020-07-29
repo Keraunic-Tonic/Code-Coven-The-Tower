@@ -47,7 +47,6 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow)){
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             spriteRenderer.flipX = true;
-            //sprite.Equals("HazelPlaceholder_1");
         }
 
         else if (Input.GetKey(KeyCode.RightArrow)){
@@ -94,9 +93,17 @@ public class CharacterMovement : MonoBehaviour
 	{
 		if (collision.gameObject.name == "nextLevel")
 		{
-            collision.gameObject.GetComponent<changeScenes>().changeScene("secondLevel");
+            collision.gameObject.GetComponent<changeScenes>().changeScene("EndScene");
 		}
-	}
+
+        //If we collide with an object tagged "obstacle" then the character will be hurt
+        if (collision.gameObject.tag == "obstacle")
+        {
+            spriteRenderer.sprite = hurtSprite;
+            print("Hazel is hurt!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
 
     
